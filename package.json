@@ -1,0 +1,27 @@
+{
+  "name": "jsloader",
+  "version": "0.1.0",
+  "description": "A little script that loads asynchronously other scripts then executes a callback function. If an array of files is given they are loaded in the same order as their order in the array.",
+  "main": "jsLoader.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alinoch/jsloader.git"
+  },
+  "keywords": [
+    "javascript",
+    "asynchronous"
+  ],
+  "author": "alinoch <https://github.com/alinoch>",
+  "licenses": [{
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  }],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "homepage": "https://github.com/alinoch/jsloader",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
+}
