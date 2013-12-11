@@ -50,4 +50,4 @@ jsLoader.loadFiles(
 Demo
 ---
 
-You can see a demo in demo.html
+You can see a demo if you open the demo.html file.
