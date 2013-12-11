@@ -8,7 +8,7 @@ Quick user guide
 
 The jsLoader object has 2 methods: *loadFile* and *loadFiles*.
 
-### **loadFile** - loads a single external or local file ###
+### *loadFile* - loads a single external or local file ###
 
 Synthax: 
 ~~~
@@ -27,7 +27,7 @@ jsLoader.loadFile(
 );
 ~~~
 
-### **loadFiles** - loads multiple external or local files ###
+### *loadFiles* - loads multiple external or local files ###
 
 Synthax: 
 ~~~
