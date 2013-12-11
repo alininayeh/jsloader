@@ -6,7 +6,7 @@ A little script that loads asynchronously other scripts then executes a callback
 Quick user guide
 ---
 
-The jsLoader object has 2 methods: *loadFile* and *loadFiles*.
+In order to use it just add **jsLoader.js** to your page. The jsLoader object has 2 methods: *loadFile* and *loadFiles*.
 
 ### *loadFile* - loads a single external or local file ###
 
