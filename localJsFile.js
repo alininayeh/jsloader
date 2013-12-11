@@ -1,0 +1,3 @@
+var localJsFile = {
+    'someAttribute': 'someValue'
+}

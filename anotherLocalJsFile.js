@@ -1,0 +1,3 @@
+var anotherLocalJsFile = {
+    'someOtherAttribute': 'someOtherValue'
+}

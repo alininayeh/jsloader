@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Javascript Loader Demo</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            #messages {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>Load javascript files asynchronously</h1>
+            <p>Here is a demo of the script loading utility. Notice how the scripts don't load all at the same time. Also notice how scripts are not loaded in the same order since they load asynchronously (but if we request an array of more files they will be always loaded in the same order to make sure that the dependencies are loaded).</p>
+            <div id="messages"></div>
+        </div>
+        <script src="jsLoader.js"></script>
+        <script>
+            // add a message in div#messages
+            function addMessage(str) {
+                var p = document.createElement('p');
+                p.innerHTML = str;
+                document.getElementById('messages').appendChild(p);
+            }
+
+            // You can load a single local js file...
+            jsLoader.loadFile(
+                'localJsFile.js',
+                function() {
+                    addMessage('1. localJsFile.js loaded');
+                }
+            );
+
+            // ...or you can load a single external js file...
+            jsLoader.loadFile(
+                'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.js',
+                function() {
+                    addMessage('2. modernizr.js loaded');
+                }
+            );
+
+            // ... and another one to demo the async load...
+            jsLoader.loadFile(
+                'http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js',
+                function() {
+                    addMessage('3. respond.js loaded');
+                }
+            );
+
+            // ...or you can load multiple files, external or internal
+            jsLoader.loadFiles(
+                ['http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js', 'http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 'anotherLocalJsFile.js'],
+                function() {
+                    addMessage('4. jquery.js, jquery-ui.min.js and anotherLocalJsFile.js loaded');
+                }
+            );
+        </script>
+    </body>
+</html>
