@@ -26,35 +26,58 @@
                 document.getElementById('messages').appendChild(p);
             }
 
-            // You can load a single local js file...
-            jsLoader.loadFile(
+            // You can load a single js file and do a callback when it's loaded
+            JsLoader.loadFiles(
                 'localJsFile.js',
                 function() {
-                    addMessage('1. localJsFile.js loaded');
+                    addMessage('1. Loaded a single file (localJsFile.js) and executed a callback');
+                },
+                true
+            );
+
+            // ... or you can load more js files and do a callback when all are loaded
+            JsLoader.loadFiles(
+                ['localJsFile.js', 'anotherLocalJsFile.js'],
+                function() {
+                    addMessage('2. Loaded more files (localJsFile.js and anotherLocalJsFile.js) and executed a callback');
+                },
+                true
+            );
+
+            // ... or you can load more js files, do a callback for one file, then do a final callback
+            JsLoader.loadFiles(
+                [
+                    {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js')}},
+                    'anotherLocalJsFile.js'
+                ],
+                function() {
+                    addMessage('3. Loaded more files (localJsFile.js and anotherLocalJsFile.js), executed a callback after the 1st one was loaded (see console), then executed a callback after all files were loaded');
+                },
+                true
+            );
+
+            // ... you can also send an object to JsLoader.loadFiles()
+            JsLoader.loadFiles(
+                {
+                    files: [
+                        {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js...')}},
+                        {src: 'anotherLocalJsFile.js', callback: function() {console.log('callback: ... and loaded anotherLocalJsFile.js')}}
+                    ],
+                    callback: function() {
+                        addMessage('4. Loaded more files (localJsFile.js and anotherLocalJsFile.js), did a callback after each one, then did a final callback');
+                    },
+                    debug: true
                 }
             );
 
-            // ...or you can load a single external js file...
-            jsLoader.loadFile(
-                'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.js',
-                function() {
-                    addMessage('2. modernizr.js loaded');
-                }
-            );
-
-            // ... and another one to demo the async load...
-            jsLoader.loadFile(
-                'http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js',
-                function() {
-                    addMessage('3. respond.js loaded');
-                }
-            );
-
-            // ...or you can load multiple files, external or internal
-            jsLoader.loadFiles(
-                ['http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.js', 'http://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js', 'anotherLocalJsFile.js'],
-                function() {
-                    addMessage('4. jquery.js, jquery-ui.min.js and anotherLocalJsFile.js loaded');
+            // ... you can also load external js files
+            JsLoader.loadFiles(
+                {
+                    files: 'http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.js',
+                    callback: function() {
+                        addMessage('5. Loaded an external file and did a callback');
+                    },
+                    debug: true
                 }
             );
         </script>
