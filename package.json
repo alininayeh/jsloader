@@ -12,16 +12,19 @@
     "asynchronous"
   ],
   "author": "alinoch <https://github.com/alinoch>",
-  "licenses": [{
-    "type": "MIT",
-    "url": "http://opensource.org/licenses/MIT"
-  }],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
   "engines": {
     "node": ">= 0.10.0"
   },
   "homepage": "https://github.com/alinoch/jsloader",
   "devDependencies": {
     "grunt": "~0.4.2",
-    "grunt-contrib-uglify": "~0.2.7"
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-jshint": "~0.8.0"
   }
 }

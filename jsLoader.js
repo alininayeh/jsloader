@@ -1,3 +1,5 @@
+"use strict";
+
 /* Load js files and perform a callback function when loaded */
 var JsLoader = {
     /**
@@ -24,7 +26,7 @@ var JsLoader = {
     /**
     * Private method for the JsLoader object for attaching a <script> tag to the body and loading a file
     * @param {string} path  - The name of the file that needs to be loaded
-    * @param {requestCallback} callback - The function that is called after the file is loaded
+    * @param {function} callback - The function that is called after the file is loaded
     * @param {boolean} - debug - The debug mode (true if we want to write into the console)
     */
     '_loadFile': function(path, callback, debug) {
@@ -63,7 +65,7 @@ var JsLoader = {
                     isLoaded();
                     callback();
                 }
-            }
+            };
         }
         else {
             script.onload = function(){
@@ -79,14 +81,14 @@ var JsLoader = {
     },
     /**
     * The public method for the JsLoader object
-    * @param {string|array|object} files  - The name of the file that needs to be loaded (ex.: 'path/to/file.js')
+    * @param {string|array} files  - The name of the file that needs to be loaded (ex.: 'path/to/file.js')
                                             or
                                             A list of file names that need to be loaded (ex.: ['path/to/file1.js', 'path/to/file2.js'])
                                             or
                                             A list of file objects that need to be loaded (ex.: [{src: 'path/to/file1.js', callback: function() {...}}, {src: 'path/to/file2.js'}])
                                             or
                                             An object with all parameters (ex.: {files: [array], callback: [requestCallback], debug: [boolean]})
-    * @param {requestCallback} callback - The function that is called after all files were loaded
+    * @param {function} callback - The function that is called after all files were loaded
     * @param {boolean} - debug - The debug mode (true if we want to write into the console)
     */
     'loadFiles': function(files, callback, debug) {
@@ -110,7 +112,7 @@ var JsLoader = {
             _debug = params['debug'];
 
         // Add files to the file list
-        var fileList = [], n = 0;
+        var fileList = [], i = 0, n = 0;
 
         // if there is only one file and it is given as a string
         if(typeof(_files) == 'string') {
@@ -120,7 +122,7 @@ var JsLoader = {
         else {
             n = _files.length;
 
-            for(var i = 0; i < n; i++) {
+            for(i = 0; i < n; i++) {
                 // if the file is given as a string
                 if(typeof(_files[i]) == 'string') {
                     fileList.push(_files[i]);
@@ -139,7 +141,7 @@ var JsLoader = {
         if(n > 0) {
             var noop = function() {};
 
-            for(var i = 0; i < n; i++) {
+            for(i = 0; i < n; i++) {
                 if(_files[i]['callback']) {
                     callbackList.push(_files[i]['callback']);
                 }
@@ -150,7 +152,7 @@ var JsLoader = {
         }
 
         // load files one after each other
-        var i = 0;
+        i = 0;
 
         function loadFile() {
             self._loadFile(
@@ -176,4 +178,4 @@ var JsLoader = {
 
         loadFile();
     }
-}
+};
