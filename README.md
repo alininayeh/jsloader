@@ -10,7 +10,7 @@ In order to use it just add **jsLoader.js** to your page. You can use the **load
 
 Synthax: 
 ~~~
-jsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug]);
+JsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug]);
 ~~~
 
 
