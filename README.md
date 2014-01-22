@@ -1,4 +1,4 @@
-jsLoader
+JsLoader
 ===
 
 A little script that loads asynchronously other scripts then executes a callback function. If an array of files is given they are loaded in the same order as their order in the array.
