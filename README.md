@@ -1,7 +1,7 @@
 JsLoader
 ===
 
-A little script that loads asynchronously other scripts then executes a callback function. If an array of files is given they are loaded in the same order as their order in the array.
+A little and light script that loads asynchronously .js files and executes callback functions after certain files have been loaded or after all files are loaded. If an array of files is given they are loaded in the same order as their order in the array, so there shouldn't be any dependency issues.
 
 Quick user guide
 ---
@@ -9,6 +9,7 @@ Quick user guide
 In order to use it just add **jsLoader.js** to your page. You can use the **loadFiles** method:
 
 Synthax: 
+
 ~~~
 JsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug]);
 ~~~
@@ -18,7 +19,7 @@ JsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug])
 
 - Load a single file:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     'localJsFile.js',
     function() {
@@ -29,7 +30,7 @@ JsLoader.loadFiles(
 
 - Load more files and set the debug mode to on:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     ['localJsFile.js', 'anotherLocalJsFile.js'],
     function() {
@@ -41,7 +42,7 @@ JsLoader.loadFiles(
 
 - Load more files, do a callback for one file, then do a final callback:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     [
         {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js')}},
@@ -56,7 +57,7 @@ JsLoader.loadFiles(
 
 - You can use an object as the parameter for the function:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     {
         files: [
