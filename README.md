@@ -6,7 +6,7 @@ A little and light script that loads asynchronously .js files and executes callb
 Quick user guide
 ---
 
-In order to use it just add **jsLoader.js** to your page. You can use the **loadFiles** method:
+In order to use it just add **jsLoader.min.js** to your page. You can use the **loadFiles** method:
 
 Synthax: 
 
