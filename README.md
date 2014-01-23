@@ -71,6 +71,10 @@ JsLoader.loadFiles(
 );
 ~~~
 
+Browser support & dependencies
+---
+
+This script does not require any library, since it is written in native javascript. It should work on all popular browsers (including the ancient IE6 :))
 
 Demo
 ---
