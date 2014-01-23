@@ -47,7 +47,7 @@
             // ... or you can load more js files, do a callback for one file, then do a final callback
             JsLoader.loadFiles(
                 [
-                    {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js')}},
+                    {'src': 'localJsFile.js', 'callback': function() {if(window.console && console.log) console.log('callback: loaded localJsFile.js')}},
                     'anotherLocalJsFile.js'
                 ],
                 function() {
@@ -60,8 +60,8 @@
             JsLoader.loadFiles(
                 {
                     files: [
-                        {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js...')}},
-                        {src: 'anotherLocalJsFile.js', callback: function() {console.log('callback: ... and loaded anotherLocalJsFile.js')}}
+                        {'src': 'localJsFile.js', 'callback': function() {if(window.console && console.log) console.log('callback: loaded localJsFile.js...')}},
+                        {'src': 'anotherLocalJsFile.js', 'callback': function() {if(window.console && console.log) console.log('callback: ... and loaded anotherLocalJsFile.js')}}
                     ],
                     callback: function() {
                         addMessage('4. Loaded more files (localJsFile.js and anotherLocalJsFile.js), did a callback after each one, then did a final callback');
