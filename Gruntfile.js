@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             browser: true,
             indent: false,
             strict: true,
-            globalstrict: true,
+            globalstrict: false,
             trailing: true,
             loopfunc: true,
             scripturl: true,
