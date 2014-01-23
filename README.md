@@ -9,7 +9,8 @@ Quick user guide
 In order to use it just add **jsLoader.js** to your page. You can use the **loadFiles** method:
 
 Synthax: 
-~~~
+
+~~~javascript
 JsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug]);
 ~~~
 
@@ -18,7 +19,7 @@ JsLoader.loadFiles({string|array} files, {function} callback, [{boolean} debug])
 
 - Load a single file:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     'localJsFile.js',
     function() {
@@ -29,7 +30,7 @@ JsLoader.loadFiles(
 
 - Load more files and set the debug mode to on:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     ['localJsFile.js', 'anotherLocalJsFile.js'],
     function() {
@@ -41,7 +42,7 @@ JsLoader.loadFiles(
 
 - Load more files, do a callback for one file, then do a final callback:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     [
         {src: 'localJsFile.js', callback: function() {console.log('callback: loaded localJsFile.js')}},
@@ -56,7 +57,7 @@ JsLoader.loadFiles(
 
 - You can use an object as the parameter for the function:
 
-~~~
+~~~javascript
 JsLoader.loadFiles(
     {
         files: [
