@@ -1,7 +1,7 @@
 JsLoader
 ===
 
-A little script that loads asynchronously other scripts then executes a callback function. If an array of files is given they are loaded in the same order as their order in the array.
+A little and light script that loads asynchronously .js files and executes callback functions after certain files have been loaded or after all files are loaded. If an array of files is given they are loaded in the same order as their order in the array, so there shouldn't be any dependency issues.
 
 Quick user guide
 ---
